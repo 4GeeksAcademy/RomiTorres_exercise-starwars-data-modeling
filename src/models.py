@@ -16,6 +16,7 @@ class User(Base):
     fistname = Column(String(20), nullable=False)
     lastname = Column(String(20), nullable=False)
     email = Column(String(80), nullable=False)
+    password = Column(String(20), nullable=False)
 
 
     def to_dict(self):
@@ -31,7 +32,7 @@ class Follower(Base):
 class Post(Base):
      __tablename__ = 'post'
      id = Column(Integer, primary_key=True)
-     usre_id = Column(Integer, ForeignKey('user.id'))
+     user_id = Column(Integer, ForeignKey('user.id'))
      title = Column(String(50), nullable=False) 
      user = relationship(User)
      
